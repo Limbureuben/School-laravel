@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class StudentRegistration extends Model
 {
-    use HasApiTokens, Notifiable;
 
     protected $fillable = [
         'first_name',
