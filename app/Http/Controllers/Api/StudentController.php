@@ -15,7 +15,7 @@ class StudentController extends Controller
             'date' => 'required|date',
         ]);
 
-        $student = Student::create ($validated);
+        $student = Student::create($validated);
 
         return response()->json([
             'message' => 'Student registred successfully',
