@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('username');
             $table->string('regNo');
-            $table->string('studentclass');
             $table->date('date');
             $table->timestamps();
         });
