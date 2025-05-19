@@ -5,4 +5,4 @@ use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\StudentRegistrationController;
 
 Route::post('/students', [StudentController::class, 'store']);
-Route::post('/student/register', [StudentRegistrationController::class, 'register']);
+Route::post('/register', [StudentRegistrationController::class, 'register']);
