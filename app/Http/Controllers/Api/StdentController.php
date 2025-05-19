@@ -9,7 +9,7 @@ use App\Models\Student;
 class StdentController extends Controller
 {
     public function store(Request $request) {
-        $validated = $request-validate([
+        $validated = $request->validate([
             username => 'required|string|max:255',
             regNo => 'required|string|max:255',
             studentclass => 'required|string|max:255',
