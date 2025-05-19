@@ -12,6 +12,7 @@ class StudentController extends Controller
         $validated = $request->validate([
             'username' => 'required|string|max:255',
             'regNo' => 'required|string|max:255',
+            'password' => 'required|string|',
             'date' => 'required|date',
         ]);
 
