@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\StdentController;
+use App\Http\Controllers\Api\StudentController;
 
-Route::post('/students', [StdentController::class, 'store']);
+Route::post('/students', [StudentController::class, 'store']);
 
