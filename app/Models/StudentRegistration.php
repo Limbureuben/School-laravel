@@ -10,7 +10,6 @@ class StudentRegistration extends Model
     protected $fillable = [
         'first_name',
         'last_name',
-        'gender',
         'reg_no',
         'password',
     ];

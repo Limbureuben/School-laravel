@@ -15,23 +15,27 @@ class StudentRegistrationController extends Controller
         $request->validate([
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'gender' => 'required|string',
+            'gender' => 'nullable|string',
         ]);
 
         do {
             $regNo = 'S' . rand(100000, 999999);
         } while (StudentRegistration::where('reg_no', $regNo)->exists());
 
-        $student = StudentRegistration::create([
+        $studentData = [
             'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'gender' => $request->gender,
             'reg_no' => $regNo,
             'password' => Hash::make($request->last_name),
-        ]);
+        ];
+
+        if ($request->filled('gender')) {
+            $studentData['gender'] = $request->gender;
+        }
+
+        $student = StudentRegistration::create($studentData);
 
         return response()->json([
-            'message' => 'Student registred successfully',
+            'message' => 'Student registered successfully',
             'reg_no' => $student->reg_no,
             'default_password' => $request->last_name,
         ], 201);
