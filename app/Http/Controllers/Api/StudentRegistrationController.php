@@ -41,4 +41,34 @@ class StudentRegistrationController extends Controller
             'default_password' => $request->last_name,
         ], 201);
     }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'reg_no' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        $student = StudentRegistration::where('reg_no', $request->reg_no)->first();
+
+        if (!$student) {
+            return response()->json(['message' => 'Invalid registration number or password'], 401);
+        }
+
+        if (!Hash::check($request->password, $student->password)) {
+            return response()->json(['message' => 'Invalid registration number or password'], 401);
+        }
+
+        return response()->json([
+            'message' => 'Login successful',
+            'student' => [
+                'first_name' => $student->first_name,
+                'last_name' => $student->last_name,
+                'gender' => $student->gender,
+                'reg_no' => $student->reg_no
+            ],
+        ]);
+
+    }
+
 }
