@@ -24,6 +24,7 @@ class StudentRegistrationController extends Controller
 
         $studentData = [
             'first_name' => $request->first_name,
+            'last_name'=> $request->last_name,
             'reg_no' => $regNo,
             'password' => Hash::make($request->last_name),
         ];
