@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserRegisterCntroller extends Controller
+class UserRegisterController extends Controller
 {
     public function user_registration(Request $request) {
 
